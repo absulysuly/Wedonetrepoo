@@ -2,10 +2,22 @@ services:
   - type: web
     name: wedonetrepoo
     env: node
-    plan: free
-    buildCommand: npm install
+    region: oregon # or ohio, singapore, virginia
+    plan: free # free tier includes 512 MB RAM, 0.1 CPU
+    buildCommand: npm ci # use npm ci for faster, reliable builds
     startCommand: npm start
+    repo: https://github.com/absulysuly/wedonet # auto-deploy from GitHub
+    branch: main # deploy from main branch
     envVars:
       - key: NODE_ENV
         value: production
+      - key: PORT
+        value: 10000 # Render uses port 10000
     healthCheckPath: /health
+    autoDeploy: true # automatically deploy on git push
+    # Optional: Custom domains
+    # domains:
+    #   - wedonetrepoo.com
+    # Optional: Environment-specific settings
+    dockerCommand: # if you want to use Docker instead
+    dockerfilePath: # ./Dockerfile

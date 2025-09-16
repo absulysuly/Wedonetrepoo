@@ -25,14 +25,14 @@ app.use((req, res, next) => {
 
 // Middleware
 app.use(express.json({ limit: '10mb' }));
-app.use(express.static('public'));
 
 // Routes
 app.get('/', (req, res) => {
   res.json({
     message: 'Welcome to Wedonetrepoo!',
     description: 'Built with AI Studio - The fastest path from prompt to production with Gemini',
-    status: 'Running successfully on Azure Web Apps',
+    status: 'Running successfully',
+    platform: 'Multi-platform deployment ready',
     timestamp: new Date().toISOString(),
     endpoints: {
       'GET /': 'This welcome message',
@@ -137,7 +137,7 @@ app.use((error, req, res, next) => {
 });
 
 // Start server
-app.listen(PORT, () => {
+const server = app.listen(PORT, '0.0.0.0', () => {
   log.info('🚀 Wedonetrepoo server started successfully', {
     port: PORT,
     environment: process.env.NODE_ENV || 'production',
