@@ -1,7 +1,7 @@
 {
-  "name": "wedonetrepoo",
-  "version": "1.0.0",
-  "description": "A Node.js application built with AI Studio for Azure deployment",
+  "name": "wedonet-platform",
+  "version": "1.2.0-fingerprint",
+  "description": "Wedonet Platform - Advanced Node.js application with fingerprint authentication",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",

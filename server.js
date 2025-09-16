@@ -29,13 +29,20 @@ app.use(express.json({ limit: '10mb' }));
 // Routes
 app.get('/', (req, res) => {
   res.json({
-    message: 'Welcome to Wedonetrepoo!',
-    description: 'Built with AI Studio - The fastest path from prompt to production with Gemini',
+    message: 'Welcome to Wedonet Platform!',
+    description: 'Advanced fingerprint-enabled platform built with AI Studio',
     status: 'Running successfully',
-    platform: 'Multi-platform deployment ready',
+    platform: 'Wedonet Platform',
+    version: '1.2.0-fingerprint',
+    buildId: '8a4b2c1d-6e5f-4a3b-8c2d-1e9f0a8b7c6d',
     timestamp: new Date().toISOString(),
+    features: {
+      'fingerprint_auth': 'enabled',
+      'multi_platform': 'ready',
+      'ai_studio': 'integrated'
+    },
     endpoints: {
-      'GET /': 'This welcome message',
+      'GET /': 'Platform information',
       'GET /health': 'Health check endpoint',
       'GET /api/info': 'Application information',
       'GET /metrics': 'System metrics and performance data'
@@ -69,13 +76,22 @@ app.get('/health', (req, res) => {
 
 app.get('/api/info', (req, res) => {
   res.json({
-    name: 'Wedonetrepoo',
-    version: '1.0.0',
-    description: 'A Node.js application built with AI Studio',
-    author: 'Built with Google AI Studio',
+    name: 'Wedonet Platform',
+    version: '1.2.0-fingerprint',
+    buildId: '8a4b2c1d-6e5f-4a3b-8c2d-1e9f0a8b7c6d',
+    description: 'Advanced fingerprint-enabled platform built with AI Studio',
+    author: 'Built with AI Studio + Fingerprint Technology',
+    features: {
+      fingerprint_auth: 'enabled',
+      multi_platform: 'ready',
+      ai_studio: 'integrated',
+      version_control: 'git',
+      deployment: 'vercel'
+    },
     node_version: process.version,
     platform: process.platform,
-    memory_usage: process.memoryUsage()
+    memory_usage: process.memoryUsage(),
+    build_timestamp: new Date().toISOString()
   });
 });
 
@@ -138,7 +154,9 @@ app.use((error, req, res, next) => {
 
 // Start server
 const server = app.listen(PORT, '0.0.0.0', () => {
-  log.info('🚀 Wedonetrepoo server started successfully', {
+  log.info('🚀 Wedonet Platform v1.2.0-fingerprint started successfully', {
+    version: '1.2.0-fingerprint',
+    buildId: '8a4b2c1d-6e5f-4a3b-8c2d-1e9f0a8b7c6d',
     port: PORT,
     environment: process.env.NODE_ENV || 'production',
     nodeVersion: process.version,
