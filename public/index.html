@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wedonet - Freelance Talent Platform</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="nav">
+                <div class="logo">
+                    <span class="we">We</span><span class="donet">donet</span>
+                </div>
+                <button class="menu-toggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1 class="hero-title">Freelance Talent</h1>
+                <p class="hero-subtitle">Connect with skilled professionals<br>across Iraq for any project.</p>
+                
+                <div class="language-selector">
+                    <select id="language" name="language">
+                        <option value="en">English</option>
+                        <option value="ar">العربية</option>
+                        <option value="ku">کوردی</option>
+                    </select>
+                </div>
+
+                <button class="cta-button" onclick="scrollToMatcher()">Get Started</button>
+            </div>
+        </section>
+
+        <!-- AI Matcher Section -->
+        <section class="matcher-section" id="matcher">
+            <div class="matcher-container">
+                <h2 class="section-title">Tell Us What You Need</h2>
+                
+                <div class="project-form">
+                    <h3>Describe Your Project</h3>
+                    <p class="form-subtitle">Let our AI find the right professional<br>for you.</p>
+                    
+                    <div class="input-container">
+                        <textarea 
+                            id="projectDescription" 
+                            placeholder="Example: I need a modern logo for my new coffee shop..."
+                            rows="4"
+                        ></textarea>
+                        <button class="submit-button" onclick="findTalent()">Find Talent</button>
+                    </div>
+                    
+                    <div id="loading" class="loading" style="display: none;">
+                        <div class="spinner"></div>
+                        <p>Finding the best professionals for your project...</p>
+                    </div>
+                    
+                    <div id="results" class="results" style="display: none;">
+                        <h4>Recommended Professionals:</h4>
+                        <div id="talentList" class="talent-list"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features">
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>AI-Powered Matching</h3>
+                    <p>Our advanced AI connects you with the perfect freelancer for your project requirements.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🇮🇶</div>
+                    <h3>Local Talent</h3>
+                    <p>Access skilled professionals across Iraq who understand your market and culture.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Fast Results</h3>
+                    <p>Get matched with qualified freelancers in minutes, not days.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Secure Platform</h3>
+                    <p>Built with advanced security features and fingerprint authentication.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <span class="we">We</span><span class="donet">donet</span>
+                </div>
+                <p>&copy; 2024 Wedonet Platform. Built with AI Studio.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="/script.js"></script>
+</body>
+</html>

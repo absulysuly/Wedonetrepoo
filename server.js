@@ -1,4 +1,5 @@
 const express = require('express');
+const path = require('path');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
@@ -25,6 +26,9 @@ app.use((req, res, next) => {
 
 // Middleware
 app.use(express.json({ limit: '10mb' }));
+
+// Serve static files from public directory
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Routes
 app.get('/', (req, res) => {
@@ -120,6 +124,45 @@ app.get('/metrics', (req, res) => {
       pid: process.pid
     }
   });
+});
+
+// AI Talent Matching endpoint
+app.post('/api/match-talent', (req, res) => {
+  const { projectDescription } = req.body;
+  
+  // Mock AI response (replace with actual AI integration later)
+  const mockTalents = [
+    {
+      name: "Ahmed Al-Baghdadi",
+      skills: "Logo Design, Branding, Adobe Illustrator",
+      description: "Expert graphic designer specializing in modern logo design for coffee shops and restaurants.",
+      rating: 4.9,
+      hourlyRate: 25
+    },
+    {
+      name: "Fatima Hassan",
+      skills: "UI/UX Design, Web Design, Figma",
+      description: "Creative designer with 5+ years experience in cafe and restaurant branding.",
+      rating: 4.8,
+      hourlyRate: 30
+    },
+    {
+      name: "Omar Rashid",
+      skills: "Brand Strategy, Marketing, Creative Direction",
+      description: "Brand strategist helping local businesses establish strong visual identities.",
+      rating: 4.7,
+      hourlyRate: 35
+    }
+  ];
+  
+  // Simulate AI processing delay
+  setTimeout(() => {
+    res.json({
+      success: true,
+      talents: mockTalents,
+      message: "AI has found the best matching professionals for your project!"
+    });
+  }, 1500);
 });
 
 // 404 handler
