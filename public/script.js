@@ -5,6 +5,41 @@ function scrollToMatcher() {
     });
 }
 
+// Mobile menu toggle function
+function toggleMenu() {
+    const menuToggle = document.querySelector('.menu-toggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    
+    menuToggle.classList.toggle('active');
+    mobileMenu.classList.toggle('active');
+}
+
+// Close mobile menu when clicking on links
+document.addEventListener('DOMContentLoaded', function() {
+    const mobileMenuLinks = document.querySelectorAll('.mobile-menu a');
+    
+    mobileMenuLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const mobileMenu = document.getElementById('mobileMenu');
+            
+            menuToggle.classList.remove('active');
+            mobileMenu.classList.remove('active');
+        });
+    });
+    
+    // Close menu when clicking outside
+    document.addEventListener('click', function(event) {
+        const menuToggle = document.querySelector('.menu-toggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        if (!menuToggle.contains(event.target) && !mobileMenu.contains(event.target)) {
+            menuToggle.classList.remove('active');
+            mobileMenu.classList.remove('active');
+        }
+    });
+});
+
 // AI Talent Matching Function
 async function findTalent() {
     const description = document.getElementById('projectDescription').value.trim();
