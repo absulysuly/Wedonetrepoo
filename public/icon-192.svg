@@ -1,0 +1,6 @@
+<svg width="192" height="192" xmlns="http://www.w3.org/2000/svg">
+  <rect width="192" height="192" fill="#1e293b" rx="20"/>
+  <circle cx="96" cy="96" r="70" fill="#f97316"/>
+  <text x="96" y="85" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-weight="bold" font-size="24">We</text>
+  <text x="96" y="110" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-weight="bold" font-size="20">donet</text>
+</svg>

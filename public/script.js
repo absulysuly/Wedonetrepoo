@@ -146,6 +146,19 @@ document.getElementById('projectDescription').addEventListener('keydown', functi
     }
 });
 
+// PWA Service Worker Registration
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/sw.js')
+            .then(function(registration) {
+                console.log('ServiceWorker registration successful');
+            })
+            .catch(function(err) {
+                console.log('ServiceWorker registration failed: ', err);
+            });
+    });
+}
+
 // Add some interactive effects
 document.addEventListener('DOMContentLoaded', function() {
     // Animate feature cards on scroll

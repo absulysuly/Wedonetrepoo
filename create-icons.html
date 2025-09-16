@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Wedonet Icon Generator</title>
+</head>
+<body>
+    <canvas id="canvas192" width="192" height="192" style="border: 1px solid #ccc;"></canvas>
+    <canvas id="canvas512" width="512" height="512" style="border: 1px solid #ccc;"></canvas>
+    
+    <script>
+        // Create 192x192 icon
+        const canvas192 = document.getElementById('canvas192');
+        const ctx192 = canvas192.getContext('2d');
+        
+        // Background
+        ctx192.fillStyle = '#1e293b';
+        ctx192.fillRect(0, 0, 192, 192);
+        
+        // Circle background
+        ctx192.fillStyle = '#f97316';
+        ctx192.beginPath();
+        ctx192.arc(96, 96, 80, 0, 2 * Math.PI);
+        ctx192.fill();
+        
+        // Text
+        ctx192.fillStyle = 'white';
+        ctx192.font = 'bold 32px Arial';
+        ctx192.textAlign = 'center';
+        ctx192.fillText('We', 96, 85);
+        ctx192.fillText('donet', 96, 115);
+        
+        // Create 512x512 icon
+        const canvas512 = document.getElementById('canvas512');
+        const ctx512 = canvas512.getContext('2d');
+        
+        // Background
+        ctx512.fillStyle = '#1e293b';
+        ctx512.fillRect(0, 0, 512, 512);
+        
+        // Circle background
+        ctx512.fillStyle = '#f97316';
+        ctx512.beginPath();
+        ctx512.arc(256, 256, 200, 0, 2 * Math.PI);
+        ctx512.fill();
+        
+        // Text
+        ctx512.fillStyle = 'white';
+        ctx512.font = 'bold 80px Arial';
+        ctx512.textAlign = 'center';
+        ctx512.fillText('We', 256, 230);
+        ctx512.fillText('donet', 256, 310);
+        
+        // Download function
+        function downloadIcon(canvas, filename) {
+            const link = document.createElement('a');
+            link.download = filename;
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+        }
+        
+        // Auto-download icons
+        setTimeout(() => {
+            downloadIcon(canvas192, 'icon-192.png');
+            downloadIcon(canvas512, 'icon-512.png');
+            alert('Icons downloaded! Move them to the public folder.');
+        }, 1000);
+    </script>
+</body>
+</html>
